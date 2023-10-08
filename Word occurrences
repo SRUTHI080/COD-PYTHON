@@ -1,1 +1,13 @@
 # COD-PYTHON
+file=open("boc.txt","r")
+counts={}
+for line in file:
+    words=line.split()
+    for word in words:
+        word=word.lower()
+        word=word.strip(".,!?;:()[]\"'")
+        if word:
+            counts[word]=counts.get(word,0)+1
+file.close()
+for word,count in counts.items():
+    print(word,count)
